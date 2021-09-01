@@ -1,0 +1,36 @@
+USE bdEstoque
+
+--Exercício 01
+INSERT INTO tbFornecedor (nomeFornecedor, contatoFornecedor)
+VALUES
+('Higas', 'Hugo Fernandes')
+,('Extra', 'Paula Souza')
+,('Dia', 'Mayara Azevedo')
+
+--Exercício 02
+SELECT nomeFornecedor, descricaoProduto FROM tbFornecedor
+INNER JOIN tbProduto ON tbProduto.codFornecedor = tbFornecedor.codFornecedor
+
+--Exercício 03
+SELECT nomeFornecedor, descricaoProduto FROM tbFornecedor
+LEFT JOIN tbProduto ON tbProduto.codFornecedor = tbFornecedor.codFornecedor
+
+SELECT descricaoProduto, nomeFornecedor FROM tbProduto
+RIGHT JOIN tbFornecedor ON tbFornecedor.codFornecedor = tbProduto.codFornecedor
+
+--Exercício 04
+INSERT INTO tbProduto (descricaoProduto, quantidadeProduto, valorProduto, codFabricante)
+VALUES
+('Durex', 5, 2.99, 1)
+,('Absorvente', 25, 5.49, 2)
+,('Desodorante', 10, 11.98, 3)
+
+--Exercício 05
+SELECT descricaoProduto, nomeFornecedor FROM tbProduto
+FULL JOIN tbFornecedor ON tbFornecedor.codFornecedor = tbProduto.codFornecedor
+
+--Exercício 06
+SELECT descricaoProduto, nomeFornecedor FROM tbProduto
+FULL JOIN tbFornecedor ON tbFornecedor.codFornecedor = tbProduto.codFornecedor
+
+-- 16 registros. A consulta exibiu todos os produtos que têm fornecedores, os três produtos recentemente inseridos que não têm, e os três fornecedores recentemente inseridos que não estão relacionados com nenhum produto.
